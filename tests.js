@@ -43,7 +43,7 @@ testCase('/GET 1st post', function(){
             .get('/posts/1')
             .end((err, res) => {
                 res.should.have.status(200);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -64,7 +64,7 @@ testCase('/GET 100th post', function(){
             .get('/posts/100')
             .end((err, res) => {
                 res.should.have.status(200);
-				res.should.be.json;
+		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -84,8 +84,8 @@ testCase('/GET 101th post', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .get('/posts/101')
             .end((err, res) => {
-		    	res.should.have.status(404);
- 				res.should.be.json;
+		res.should.have.status(404);
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -102,7 +102,7 @@ testCase('/GET 0 post', function(){
             .get('/posts/0')
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -119,7 +119,7 @@ testCase('/GET -1 post', function(){
             .get('/posts/-1')
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -136,7 +136,7 @@ testCase('/GET aaa post', function(){
             .get('/posts/aaa')
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -154,7 +154,7 @@ testCase('/GET *** post', function(){
             .get('/posts/***')
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -182,7 +182,7 @@ testCase('/POST new post with userId=1', function(){
   	    })
             .end((err, res) => {
                 res.should.have.status(201);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -190,8 +190,8 @@ testCase('/POST new post with userId=1', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
-				res.body.body.should.equal('bar');
-				res.body.userId.should.equal(1);
+		res.body.body.should.equal('bar');
+		res.body.userId.should.equal(1);
                 console.log(res.body);
                 done();
             });
@@ -210,7 +210,7 @@ testCase('/POST new post userId=10', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(201);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object'); 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -218,8 +218,8 @@ testCase('/POST new post userId=10', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
-				res.body.body.should.equal('bar');
-				res.body.userId.should.equal(10);
+		res.body.body.should.equal('bar');
+		res.body.userId.should.equal(10);
                 console.log(res.body);
                 done();
             });
@@ -239,7 +239,7 @@ testCase('/POST new post userId=11', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -261,7 +261,7 @@ testCase('/POST new post userId=aaa', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -284,7 +284,7 @@ testCase('/POST new post userId=***', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(404);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
@@ -307,7 +307,7 @@ testCase('/POST new post with empty body', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(201);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -315,8 +315,8 @@ testCase('/POST new post with empty body', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
-				res.body.body.should.equal('');
-				res.body.userId.should.equal(10);
+		res.body.body.should.equal('');
+		res.body.userId.should.equal(10);
                 console.log(res.body);
                 done();
             });
@@ -336,7 +336,7 @@ testCase('/POST new post with empty title', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(201);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -344,8 +344,8 @@ testCase('/POST new post with empty title', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('');			
-				res.body.body.should.equal('bar');
-				res.body.userId.should.equal(10);
+		res.body.body.should.equal('bar');
+		res.body.userId.should.equal(10);
                 console.log(res.body);
                 done();
             });
@@ -370,7 +370,7 @@ testCase('/PUT update title & body of existing (1st) post', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(200);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -378,8 +378,8 @@ testCase('/PUT update title & body of existing (1st) post', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(1);
                 res.body.title.should.equal('foo');			
-				res.body.body.should.equal('bar');	
-				res.body.userId.should.equal(1);
+		res.body.body.should.equal('bar');	
+		res.body.userId.should.equal(1);
                 console.log(res.body);
                 done();
             });
@@ -399,7 +399,7 @@ testCase('/PUT update user of existing (1st) post', function(){
 	    })
             .end((err, res) => {
                 res.should.have.status(200);
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
@@ -407,8 +407,8 @@ testCase('/PUT update user of existing (1st) post', function(){
                 res.body.should.have.property('body');
                 res.body.id.should.equal(1);
                 res.body.title.should.equal('sunt aut facere repellat provident occaecati excepturi optio reprehenderit');			
-				res.body.body.should.equal('quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto');	
-				res.body.userId.should.equal(10);
+		res.body.body.should.equal('quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto');	
+		res.body.userId.should.equal(10);
                 console.log(res.body);
                 done();
             });
@@ -430,7 +430,7 @@ testCase('/PUT update user of non-existing (101st) post', function(){
             .end((err, res) => {
             	res.should.have.status(404);
 
- 				res.should.be.json;
+ 		res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.be.empty;
                 console.log(res.body);
