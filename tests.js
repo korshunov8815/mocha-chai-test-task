@@ -43,20 +43,13 @@ testCase('/GET 1st post', function(){
             .get('/posts/1')
             .end((err, res) => {
                 res.should.have.status(200);
-
-                //ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have id=1
                 res.body.id.should.equal(1);
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -71,20 +64,13 @@ testCase('/GET 100th post', function(){
             .get('/posts/100')
             .end((err, res) => {
                 res.should.have.status(200);
-
-                //ensure that answer contains a json
- 				res.should.be.json;
-                //ensure that body contains a single object
+				res.should.be.json;
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have id=100
                 res.body.id.should.equal(100);
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -98,16 +84,10 @@ testCase('/GET 101th post', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .get('/posts/101')
             .end((err, res) => {
-               res.should.have.status(404);
- 
- 				//ensure that answer contains a json
+		    	res.should.have.status(404);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -122,15 +102,9 @@ testCase('/GET 0 post', function(){
             .get('/posts/0')
             .end((err, res) => {
                 res.should.have.status(404);
- 
- 				//ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -145,15 +119,9 @@ testCase('/GET -1 post', function(){
             .get('/posts/-1')
             .end((err, res) => {
                 res.should.have.status(404);
- 
- 				//ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -168,15 +136,9 @@ testCase('/GET aaa post', function(){
             .get('/posts/aaa')
             .end((err, res) => {
                 res.should.have.status(404);
- 
- 				//ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -192,15 +154,9 @@ testCase('/GET *** post', function(){
             .get('/posts/***')
             .end((err, res) => {
                 res.should.have.status(404);
- 
- 				//ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -220,28 +176,22 @@ testCase('/POST new post with userId=1', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: 'bar',
-   			   userId: 1
-  			})
+		    title: 'foo',
+		    body: 'bar',
+		    userId: 1
+  	    })
             .end((err, res) => {
-                 res.should.have.status(201);
-
-                //ensure that answer contains a json
+                res.should.have.status(201);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
 				res.body.body.should.equal('bar');
 				res.body.userId.should.equal(1);
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -254,28 +204,22 @@ testCase('/POST new post userId=10', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: 'bar',
-   			   userId: 10
-  			})
+		    title: 'foo',
+		    body: 'bar',
+		    userId: 10
+	    })
             .end((err, res) => {
-                 res.should.have.status(201);
-
-                //ensure that answer contains a json
+                res.should.have.status(201);
  				res.should.be.json;
-                //ensure that body contains a single object
-                res.body.should.be.a('object');
-                //ensure that body has all needed properties 
+                res.body.should.be.a('object'); 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
 				res.body.body.should.equal('bar');
 				res.body.userId.should.equal(10);
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -289,21 +233,15 @@ testCase('/POST new post userId=11', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: 'bar',
-   			   userId: 11
-  			})
+		    title: 'foo',
+		    body: 'bar',
+		    userId: 11
+	    })
             .end((err, res) => {
-                 res.should.have.status(404);
-
-                //ensure that answer contains a json
+                res.should.have.status(404);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -317,21 +255,15 @@ testCase('/POST new post userId=aaa', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: 'bar',
-   			   userId: 'aaa'
-  			})
+		    title: 'foo',
+		    body: 'bar',
+		    userId: 'aaa'
+	    })
             .end((err, res) => {
-                 res.should.have.status(404);
-
-                //ensure that answer contains a json
+                res.should.have.status(404);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -346,21 +278,15 @@ testCase('/POST new post userId=***', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: 'bar',
-   			   userId: '***'
-  			})
+		    title: 'foo',
+		    body: 'bar',
+		    userId: '***'
+	    })
             .end((err, res) => {
-                 res.should.have.status(404);
-
-                //ensure that answer contains a json
+                res.should.have.status(404);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -375,29 +301,22 @@ testCase('/POST new post with empty body', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: 'foo',
-  			   body: '',
-   			   userId: 10
-  			})
+		    title: 'foo',
+		    body: '',
+		    userId: 10
+	    })
             .end((err, res) => {
-                 res.should.have.status(201);
-
-                //ensure that answer contains a json
+                res.should.have.status(201);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('foo');			
 				res.body.body.should.equal('');
 				res.body.userId.should.equal(10);
-                
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -411,29 +330,22 @@ testCase('/POST new post with empty title', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .post('/posts')
             .send({
- 			   title: '',
-  			   body: 'bar',
-   			   userId: 10
-  			})
+		    title: '',
+		    body: 'bar',
+		    userId: 10
+	    })
             .end((err, res) => {
-                 res.should.have.status(201);
-
-                //ensure that answer contains a json
+                res.should.have.status(201);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(101);
                 res.body.title.should.equal('');			
 				res.body.body.should.equal('bar');
 				res.body.userId.should.equal(10);
-                
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -451,30 +363,23 @@ testCase('/PUT update title & body of existing (1st) post', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .put('/posts/1')
             .send({
- 			   id: 1,
-   			   title: 'foo',
-    		   body: 'bar',
-   			   userId: 1
-  			})
+		    id: 1,
+		    title: 'foo',
+		    body: 'bar',
+		    userId: 1
+	    })
             .end((err, res) => {
-                 res.should.have.status(200);
-
-                //ensure that answer contains a json
+                res.should.have.status(200);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(1);
                 res.body.title.should.equal('foo');			
 				res.body.body.should.equal('bar');	
 				res.body.userId.should.equal(1);
-                
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -487,30 +392,23 @@ testCase('/PUT update user of existing (1st) post', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .put('/posts/1')
             .send({
- 			   id: 1,
-   			   title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    		   body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-   			   userId: 10
-  			})
+		    id: 1,
+		    title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+		    body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+		    userId: 10
+	    })
             .end((err, res) => {
-                 res.should.have.status(200);
-
-                //ensure that answer contains a json
+                res.should.have.status(200);
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that body has all needed properties 
                 res.body.should.have.property('userId');
                 res.body.should.have.property('id');
                 res.body.should.have.property('title');
                 res.body.should.have.property('body');
-                //ensure that post have correct properties
                 res.body.id.should.equal(1);
                 res.body.title.should.equal('sunt aut facere repellat provident occaecati excepturi optio reprehenderit');			
 				res.body.body.should.equal('quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto');	
 				res.body.userId.should.equal(10);
-                
-                //print json to console
                 console.log(res.body);
                 done();
             });
@@ -524,22 +422,17 @@ testCase('/PUT update user of non-existing (101st) post', function(){
         chai.request('https://jsonplaceholder.typicode.com')
             .put('/posts/101')
             .send({
- 			   id: 101,
-   			   title: "foo",
-    		   body: "bar",
-   			   userId: 10
-  			})
+		    id: 101,
+		    title: "foo",
+		    body: "bar",
+		    userId: 10
+	    })
             .end((err, res) => {
-            	 res.should.have.status(404);
+            	res.should.have.status(404);
 
-                 //ensure that answer contains a json
  				res.should.be.json;
-                //ensure that body contains a single object
                 res.body.should.be.a('object');
-                //ensure that json is empty
                 res.body.should.be.empty;
-
-                //print json to console
                 console.log(res.body);
                 done();
             });
